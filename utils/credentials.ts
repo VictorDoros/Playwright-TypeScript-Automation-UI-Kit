@@ -6,7 +6,7 @@ function required(name: string): string {
 
 export const ENV = {
   user: {
-    firstName: required('USER_FIRST_NAME'),
+    name: required('USER_NAME'),
     email: required('USER_EMAIL'),
     password: required('USER_PASSWORD'),
   },

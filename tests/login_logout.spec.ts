@@ -17,7 +17,7 @@ test('Login and Logout', async () => {
   await test.step('Login the user', async () => {
     await appPages.home.userLogin(ENV.user.email, ENV.user.password)
     await expect(appPages.profile.views.welcomeMessage).toContainText(
-      new RegExp(ENV.user.firstName, 'i'),
+      new RegExp(ENV.user.name, 'i'),
     )
   })
 
