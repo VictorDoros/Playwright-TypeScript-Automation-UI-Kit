@@ -1,16 +1,9 @@
 import { defineConfig, devices } from '@playwright/test'
 import dotenv from 'dotenv'
 
-const ENV = process.env.ENV || 'dev'
+dotenv.config({ path: '.env.credentials' })
 
 // Load .env only if present (local dev)
-
-if (!process.env.CI) {
-  dotenv.config({
-    path: `.env.${ENV}`,
-    override: false,
-  })
-}
 
 /**
  * Read environment variables from file.
@@ -39,7 +32,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    baseURL: process.env.BASE_URL,
+    baseURL: 'https://todo.qacart.com/',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
