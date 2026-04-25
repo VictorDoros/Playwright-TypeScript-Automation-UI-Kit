@@ -1,6 +1,7 @@
 name: Playwright Tests
 
-run-name: ${{ inputs.suite }} - ${{ inputs.environment }} - ${{ inputs.browser }}
+run-name: |
+  Suite: ${{ inputs.suite }} | Env: ${{ inputs.environment }} | Browser: ${{ inputs.browser }}
 
 on:
   workflow_dispatch:
@@ -11,8 +12,8 @@ on:
         default: ''
         type: choice
         options:
-          - Smoke
-          - Regression
+          - smoke
+          - regression
 
       environment:
         description: 'Select environment'
@@ -20,8 +21,8 @@ on:
         default: ''
         type: choice
         options:
-          - Testing
-          - Staging
+          - testing
+          - staging
 
       browser:
         description: 'Select browser'
@@ -29,9 +30,9 @@ on:
         default: 'chromium'
         type: choice
         options:
-          - Chromium
-          - Firefox
-          - Webkit
+          - chromium
+          - firefox
+          - webkit
 
       grep:
         description: 'Optional tag filter (e.g. @login, @checkout)'
