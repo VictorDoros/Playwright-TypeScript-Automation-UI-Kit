@@ -26,7 +26,7 @@ class Butons {
   }
 }
 
-export class CreateNewToDos {
+export class CreateNewToDo {
   views: Views
   inputs: Inputs
   buttons: Butons

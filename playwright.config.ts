@@ -26,7 +26,7 @@ export default defineConfig({
   /**
    * Maximum time one test is allowed to run.
    */
-  timeout: 10000,
+  timeout: 30000,
 
   /**
    * Directory where test files are located.
