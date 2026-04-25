@@ -19,23 +19,23 @@ test.describe('Manage ToDo Items @regression', async () => {
 
     // #2
     await test.step('Confirm there are no items in the list', async () => {
-      await expect(app.profile.views.noAvailableToDos).toBeVisible()
+      await expect(app.profile.views.noAvailableTodos).toBeVisible()
     })
 
     // #3
     await test.step('Click on "+" icon to access the "new" todo page', async () => {
-      await app.profile.buttons.addNewToDo.click()
+      await app.profile.buttons.addNewTodo.click()
 
-      await expect(app.createNewToDo.views.createNewToDoPanel).toBeVisible()
+      await expect(app.createNewTodo.views.createNewTodoPanel).toBeVisible()
 
-      await expect(app.createNewToDo.views.createNewToDoHeader).toHaveText(
+      await expect(app.createNewTodo.views.createNewTodoHeader).toHaveText(
         'Create a new Todo',
       )
     })
 
     // #4
     await test.step('Add a new todo item', async () => {
-      await app.createNewToDo.createTodoItem(page, 'item1')
+      await app.createNewTodo.createTodoItem(page, 'item1')
     })
 
     // #5
@@ -45,9 +45,9 @@ test.describe('Manage ToDo Items @regression', async () => {
 
     // #6
     await test.step('Add another todo item', async () => {
-      await app.profile.buttons.addNewToDo.click()
+      await app.profile.buttons.addNewTodo.click()
 
-      await app.createNewToDo.createTodoItem(page, 'item2')
+      await app.createNewTodo.createTodoItem(page, 'item2')
     })
 
     // #7
@@ -93,7 +93,7 @@ test.describe('Manage ToDo Items @regression', async () => {
     // #13
     await test.step('Confirm there is no item in the list', async () => {
       await expect(app.profile.views.todoItems).toHaveCount(0)
-      await expect(app.profile.views.noAvailableToDos).toBeVisible()
+      await expect(app.profile.views.noAvailableTodos).toBeVisible()
     })
   })
 })

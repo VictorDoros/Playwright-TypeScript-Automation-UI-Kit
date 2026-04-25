@@ -2,24 +2,24 @@ import { Page, Locator } from '@playwright/test'
 
 class Views {
   readonly welcomeMessage: Locator
-  readonly noAvailableToDos: Locator
+  readonly noAvailableTodos: Locator
   readonly todoItems: Locator
 
   constructor(page: Page) {
     this.welcomeMessage = page.locator('[data-testid="welcome"]')
-    this.noAvailableToDos = page.locator('[data-testid="no-todos"]')
+    this.noAvailableTodos = page.locator('[data-testid="no-todos"]')
     this.todoItems = page.locator('[data-testid="todo-item"]')
   }
 }
 
 class Butons {
   readonly logout: Locator
-  readonly addNewToDo: Locator
+  readonly addNewTodo: Locator
   readonly removeTask: Locator
 
   constructor(page: Page) {
     this.logout = page.getByText('Logout')
-    this.addNewToDo = page.locator('[data-testid="add"]')
+    this.addNewTodo = page.locator('[data-testid="add"]')
     this.removeTask = page.locator('[data-testid="delete"]')
   }
 }
