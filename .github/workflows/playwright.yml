@@ -2,14 +2,24 @@ name: Playwright Tests
 on:
   workflow_dispatch:
     inputs:
+      suite:
+        description: 'Select a test suite'
+        required: true
+        default: ''
+        type: choice
+        options:
+          - smoke
+          - regression
+
       environment:
         description: 'Select environment'
         required: true
-        default: 'testing'
+        default: ''
         type: choice
         options:
           - testing
           - staging
+
       browser:
         description: 'Select browser'
         required: true
@@ -19,6 +29,11 @@ on:
           - chromium
           - firefox
           - webkit
+
+      grep:
+        description: 'Optional tag filter (e.g. @login, @checkout)'
+        required: false
+        default: ''
 jobs:
   test:
     timeout-minutes: 60
@@ -44,7 +59,12 @@ jobs:
           USER_NAME: ${{ secrets.USER_NAME }}
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-        run: npx playwright test --project=${{ github.event.inputs.environment }}-${{ github.event.inputs.browser }}
+        run: |
+          if [ -z "${{ github.event.inputs.grep }}" ]; then
+            npx playwright test --project=${{ github.event.inputs.environment }}-${{ github.event.inputs.browser }} --grep @${{ github.event.inputs.suite }}
+          else
+            npx playwright test --project=${{ github.event.inputs.environment }}-${{ github.event.inputs.browser }} --grep @${{ github.event.inputs.suite }} --grep "${{ github.event.inputs.grep }}"
+            fi
 
       - name: Generate Allure report
         if: always()
