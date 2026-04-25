@@ -1,7 +1,7 @@
 name: Playwright Tests
 
 run-name: |
-  Suite: ${{ inputs.suite }} | Env: ${{ inputs.environment }} | Browser: ${{ inputs.browser }}
+  Suite: ${{ inputs.suite }} | Env: ${{ inputs.environment }} | Browser: ${{ inputs.browser }} | Run_id: #${{ github.run_number }}
 
 on:
   workflow_dispatch:
