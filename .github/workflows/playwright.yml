@@ -4,6 +4,25 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Select environment'
+        required: true
+        default: 'testing'
+        type: choice
+        options:
+          - testing
+          - staging
+      browser:
+        description: 'Select browser'
+        required: true
+        default: 'chromium'
+        type: choice
+        options:
+          - chromium
+          - firefox
+          - webkit
 jobs:
   test:
     timeout-minutes: 60
@@ -22,7 +41,7 @@ jobs:
           USER_NAME: ${{ secrets.USER_NAME }}
           USER_EMAIL: ${{ secrets.USER_EMAIL }}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
-        run: npx playwright test --project=chromium
+        run: npx playwright test --project=${{ github.event.inputs.environment }}-${{ github.event.inputs.browser }}
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
