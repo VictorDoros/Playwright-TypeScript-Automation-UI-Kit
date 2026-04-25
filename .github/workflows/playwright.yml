@@ -11,8 +11,8 @@ on:
         default: ''
         type: choice
         options:
-          - smoke
-          - regression
+          - Smoke
+          - Regression
 
       environment:
         description: 'Select environment'
@@ -20,8 +20,8 @@ on:
         default: ''
         type: choice
         options:
-          - testing
-          - staging
+          - Testing
+          - Staging
 
       browser:
         description: 'Select browser'
@@ -29,9 +29,9 @@ on:
         default: 'chromium'
         type: choice
         options:
-          - chromium
-          - firefox
-          - webkit
+          - Chromium
+          - Firefox
+          - Webkit
 
       grep:
         description: 'Optional tag filter (e.g. @login, @checkout)'
