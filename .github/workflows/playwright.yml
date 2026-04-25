@@ -1,4 +1,7 @@
 name: Playwright Tests
+
+run-name: ${{ inputs.suite }} - ${{ inputs.environment }} - ${{ inputs.browser }}
+
 on:
   workflow_dispatch:
     inputs:
