@@ -31,14 +31,14 @@ export default defineConfig({
   projects: [
     // npx playwright test --project=staging
     {
-      name: 'testing',
+      name: 'testing-chromium',
       use: {
         ...devices['Desktop Chrome'],
         baseURL: environments.testing,
       },
     },
     {
-      name: 'staging',
+      name: 'staging-chromium',
       use: {
         ...devices['Desktop Chrome'],
         baseURL: environments.staging,
