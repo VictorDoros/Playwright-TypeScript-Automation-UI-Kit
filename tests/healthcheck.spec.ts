@@ -19,8 +19,10 @@ test.describe('Health Check @smoke', async () => {
     })
 
     // #3
-    await test.step('Confirm the presence of nav bar', async () => {
-      await expect(app.home.views.navBar).toBeVisible()
+    await test.step('Confirm the corresponding navbar buttons are visible', async () => {
+      await expect(app.home.buttons.home).toBeVisible()
+      await expect(app.home.buttons.login).toBeVisible()
+      await expect(app.home.buttons.signUp).toBeVisible()
     })
   })
 })

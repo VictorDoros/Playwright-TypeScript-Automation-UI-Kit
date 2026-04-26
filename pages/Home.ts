@@ -2,22 +2,24 @@ import { Page, Locator } from '@playwright/test'
 
 class Views {
   readonly loginContainer: Locator
-  readonly navBar: Locator
   readonly loginContainerHeader: Locator
 
   constructor(page: Page) {
     this.loginContainer = page.locator('.login-container')
-    this.navBar = page.locator('.iOQdwL')
     this.loginContainerHeader = page.locator('.login-container .header')
   }
 }
 
 class Buttons {
+  readonly home: Locator
+  readonly login: Locator
   readonly signUp: Locator
   readonly submit: Locator
 
   constructor(page: Page) {
-    this.signUp = page.locator('[href="/signup"]')
+    this.home = page.getByRole('link', { name: 'Home' })
+    this.login = page.getByRole('link', { name: 'Login' })
+    this.signUp = page.getByRole('link', { name: 'Signup' })
     this.submit = page.locator('#submit')
   }
 }
