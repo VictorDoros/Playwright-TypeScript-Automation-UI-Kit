@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures/test.fixture'
+import { test, expect } from '../fixtures/test.fixture.ts'
 
 test.beforeEach(async ({ page }) => {
   await test.step('Access the application', async () => {

@@ -346,8 +346,3 @@ npm run report:html
 - Add meaningful tags to new tests.
 - Avoid committing generated folders such as `allure-results`, `allure-report`, `html-report`, and `test-results`.
 - Keep credentials in `.env.credentials` locally and GitHub Secrets in CI.
-
-## Known maintenance notes
-
-- The import in `fixtures/app.pages.ts` references `../pages/CreateNewToDo`, while the file in the project is named `CreateNewTodo.ts`. On case-sensitive systems, such as Linux CI runners, this can fail. Rename the file or update the import so the casing matches exactly.
-- `package.json` has no predefined scripts yet. The project can still be run with `npx playwright ...`, but adding scripts will improve developer experience.

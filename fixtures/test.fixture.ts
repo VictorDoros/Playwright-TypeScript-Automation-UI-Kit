@@ -1,5 +1,5 @@
 import { test as base } from '@playwright/test'
-import { AppPages } from './app.pages'
+import { AppPages } from './app.pages.ts'
 
 type Fixtures = {
   app: AppPages

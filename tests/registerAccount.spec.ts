@@ -1,5 +1,5 @@
-import { test, expect } from '../fixtures/test.fixture'
-import { RandomDataUtil } from '../utils/randomDataGeneration'
+import { test, expect } from '../fixtures/test.fixture.ts'
+import { RandomDataUtil } from '../utils/randomDataGeneration.ts'
 
 test.beforeEach(async ({ page }) => {
   await test.step('Access the application', async () => {

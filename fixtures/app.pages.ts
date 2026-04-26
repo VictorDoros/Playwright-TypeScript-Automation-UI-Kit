@@ -1,8 +1,8 @@
 import { Page } from '@playwright/test'
-import { Home } from '../pages/Home'
-import { Registration } from '../pages/Registration'
-import { Profile } from '../pages/Profile'
-import { CreateNewTodo } from '../pages/CreateNewToDo'
+import { Home } from '../pages/Home.ts'
+import { Registration } from '../pages/Registration.ts'
+import { Profile } from '../pages/Profile.ts'
+import { CreateNewTodo } from '../pages/CreateNewToDo.ts'
 
 export class AppPages {
   readonly home: Home

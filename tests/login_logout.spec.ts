@@ -1,5 +1,5 @@
-import { test, expect } from '../fixtures/test.fixture'
-import { ENV } from '../utils/credentials'
+import { test, expect } from '../fixtures/test.fixture.ts'
+import { ENV } from '../utils/credentials.ts'
 
 test.beforeEach(async ({ page }) => {
   await test.step('Access the application', async () => {
