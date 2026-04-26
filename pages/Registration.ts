@@ -50,12 +50,7 @@ export class Registration {
    * @param email - Email to enter
    * @param password - Password to enter
    */
-  async completeRegistrationForm(
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string,
-  ): Promise<void> {
+  async completeRegistrationForm(firstName: string, lastName: string, email: string, password: string): Promise<void> {
     await this.inputs.firstName.fill(firstName)
     await this.inputs.lastName.fill(lastName)
     await this.inputs.email.fill(email)
@@ -72,16 +67,7 @@ export class Registration {
    * @param email - Email to enter
    * @param password - Password to enter
    */
-  async registerUser(
-    page: Page,
-    firstName: string,
-    lastName: string,
-    email: string,
-    password: string,
-  ) {
-    await Promise.all([
-      page.waitForURL('**/todo'),
-      this.completeRegistrationForm(firstName, lastName, email, password),
-    ])
+  async registerUser(page: Page, firstName: string, lastName: string, email: string, password: string) {
+    await Promise.all([page.waitForURL('**/todo'), this.completeRegistrationForm(firstName, lastName, email, password)])
   }
 }

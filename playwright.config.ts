@@ -60,11 +60,7 @@ export default defineConfig({
   /**
    * HTML report is generated after test execution.
    */
-  reporter: [
-    ['allure-playwright'],
-    ['html', { outputFolder: 'html-report' }],
-    ['list'],
-  ],
+  reporter: [['allure-playwright'], ['html', { outputFolder: 'html-report' }], ['list']],
 
   /**
    * Global test settings applied to all projects.

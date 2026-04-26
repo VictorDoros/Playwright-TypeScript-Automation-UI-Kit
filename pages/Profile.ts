@@ -56,9 +56,7 @@ export class Profile {
    * @param itemName - Item to intercat
    */
   async checkTodoItem(name: string) {
-    await this.getTodoItemByName(name)
-      .locator(this.checkboxes.completeTask)
-      .click()
+    await this.getTodoItemByName(name).locator(this.checkboxes.completeTask).click()
   }
 
   /**
@@ -68,10 +66,7 @@ export class Profile {
   async removeTodoItem(page: Page, name: string) {
     await Promise.all([
       page.waitForResponse(
-        (res) =>
-          res.url().includes('/tasks') &&
-          res.request().method() === 'DELETE' &&
-          res.status() === 200,
+        (res) => res.url().includes('/tasks') && res.request().method() === 'DELETE' && res.status() === 200,
       ),
       this.getTodoItemByName(name).locator(this.buttons.removeTask).click(),
     ])

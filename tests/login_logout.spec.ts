@@ -16,9 +16,7 @@ test.describe('Login and Logout @smoke', async () => {
 
     // #2
     await test.step('Confirm the user was logged in', async () => {
-      await expect(app.profile.views.welcomeMessage).toContainText(
-        new RegExp(ENV.user.name, 'i'),
-      )
+      await expect(app.profile.views.welcomeMessage).toContainText(new RegExp(ENV.user.name, 'i'))
     })
   })
 
@@ -35,9 +33,7 @@ test.describe('Login and Logout @smoke', async () => {
 
     // #3
     await test.step('Confirm the user was logged in', async () => {
-      await expect(app.home.views.loginContainerHeader).toHaveText(
-        'Login to Application',
-      )
+      await expect(app.home.views.loginContainerHeader).toHaveText('Login to Application')
     })
   })
 })

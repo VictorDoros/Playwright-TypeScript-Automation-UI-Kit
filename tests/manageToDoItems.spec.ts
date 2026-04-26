@@ -8,10 +8,7 @@ test.beforeEach(async ({ page }) => {
 })
 
 test.describe('Manage ToDo Items @regression', async () => {
-  test('Add, check and delete a todo item @manageItems', async ({
-    page,
-    app,
-  }) => {
+  test('Add, check and delete a todo item @manageItems', async ({ page, app }) => {
     // #1
     await test.step('Login the user', async () => {
       await app.home.userLogin(ENV.user.email, ENV.user.password)
@@ -26,13 +23,9 @@ test.describe('Manage ToDo Items @regression', async () => {
     await test.step('Click on "+" icon to access the "new" todo page', async () => {
       await app.profile.buttons.addNewTodo.click()
 
-      await expect(
-        app.createNewTodo.views.createNewTodoPanelHeader,
-      ).toBeVisible()
+      await expect(app.createNewTodo.views.createNewTodoPanelHeader).toBeVisible()
 
-      await expect(app.createNewTodo.views.createNewTodoPanelHeader).toHaveText(
-        'Create a new Todo',
-      )
+      await expect(app.createNewTodo.views.createNewTodoPanelHeader).toHaveText('Create a new Todo')
     })
 
     // #4
@@ -64,16 +57,10 @@ test.describe('Manage ToDo Items @regression', async () => {
 
     // #9
     await test.step('Confirm that "item1" is checked only', async () => {
-      await expect(
-        app.profile
-          .getTodoItemByName('item1')
-          .locator(app.profile.checkboxes.completeTask),
-      ).toBeChecked()
+      await expect(app.profile.getTodoItemByName('item1').locator(app.profile.checkboxes.completeTask)).toBeChecked()
 
       await expect(
-        app.profile
-          .getTodoItemByName('item2')
-          .locator(app.profile.checkboxes.completeTask),
+        app.profile.getTodoItemByName('item2').locator(app.profile.checkboxes.completeTask),
       ).not.toBeChecked()
     })
 
