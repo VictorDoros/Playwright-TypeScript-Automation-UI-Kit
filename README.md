@@ -83,16 +83,10 @@ cd <repository-folder>
 npm ci
 ```
 
-Install Playwright browsers:
+Install Playwright:
 
 ```bash
 npx playwright install
-```
-
-To install browsers with system dependencies:
-
-```bash
-npx playwright install --with-deps
 ```
 
 ## Environment variables
@@ -325,19 +319,13 @@ The project includes Prettier configuration in `.prettierrc`:
 
 ## Suggested package scripts
 
-`package.json` currently does not define npm scripts. Consider adding the following scripts for easier usage:
-
 ```json
 {
   "scripts": {
     "test": "playwright test",
     "test:smoke": "playwright test --grep @smoke",
     "test:regression": "playwright test --grep @regression",
-    "test:headed": "playwright test --headed",
-    "test:ui": "playwright test --ui",
-    "report:html": "playwright show-report html-report",
-    "report:allure:generate": "allure generate allure-results --clean -o allure-report",
-    "report:allure:open": "allure open allure-report"
+    "report:html": "playwright show-report html-report"
   }
 }
 ```
