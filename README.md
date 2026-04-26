@@ -27,9 +27,9 @@ A Playwright + TypeScript UI automation framework for the [QAcart Todo App](http
 │   ├── Profile.ts                  # Todo/Profile page object
 │   └── Registration.ts             # Registration page object
 ├── tests/
-│   ├── healthcheck.spec.ts         # Basic application health checks
+│   ├── healthcheck.spec.ts         # Application health checks
 │   ├── login_logout.spec.ts        # Login and logout tests
-│   ├── manageToDoItems.spec.ts     # Todo item CRUD-style flow
+│   ├── manageToDoItems.spec.ts     # CRUD operations for todo items
 │   └── registerAccount.spec.ts     # New user registration flow
 ├── utils/
 │   ├── credentials.ts              # Required environment variables
