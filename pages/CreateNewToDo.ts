@@ -16,23 +16,23 @@ class Inputs {
   }
 }
 
-class Butons {
-  readonly submitNewTaks: Locator
+class Buttons {
+  readonly submitNewTask: Locator
 
   constructor(page: Page) {
-    this.submitNewTaks = page.locator('[data-testid="submit-newTask"]')
+    this.submitNewTask = page.locator('[data-testid="submit-newTask"]')
   }
 }
 
 export class CreateNewTodo {
   views: Views
   inputs: Inputs
-  buttons: Butons
+  buttons: Buttons
 
   constructor(page: Page) {
     this.views = new Views(page)
     this.inputs = new Inputs(page)
-    this.buttons = new Butons(page)
+    this.buttons = new Buttons(page)
   }
 
   /**
@@ -42,6 +42,6 @@ export class CreateNewTodo {
   async createTodoItem(page: Page, itemName: string) {
     await this.inputs.todoItem.fill(itemName)
 
-    await Promise.all([page.waitForURL('**/todo'), this.buttons.submitNewTaks.click()])
+    await Promise.all([page.waitForURL('**/todo'), this.buttons.submitNewTask.click()])
   }
 }

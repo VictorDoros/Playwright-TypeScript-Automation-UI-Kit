@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
 })
 
 test.describe('Login and Logout @smoke', async () => {
-  test('Validate thet user can log in @login_logout', async ({ app }) => {
+  test('Validate that user can log in @login_logout', async ({ app }) => {
     // #1
     await test.step('Login the user', async () => {
       await app.home.userLogin(ENV.user.email, ENV.user.password)

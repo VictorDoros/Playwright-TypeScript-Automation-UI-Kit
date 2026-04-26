@@ -12,7 +12,7 @@ class Views {
   }
 }
 
-class Butons {
+class Buttons {
   readonly logout: Locator
   readonly addNewTodo: Locator
   readonly removeTask: Locator
@@ -34,18 +34,18 @@ class Checkboxes {
 
 export class Profile {
   views: Views
-  buttons: Butons
+  buttons: Buttons
   checkboxes: Checkboxes
 
   constructor(page: Page) {
     this.views = new Views(page)
-    this.buttons = new Butons(page)
+    this.buttons = new Buttons(page)
     this.checkboxes = new Checkboxes(page)
   }
 
   /**
    * Get an item from the list by its name
-   * @param itemName - Item to intercat
+   * @param itemName - Item to interact
    */
   getTodoItemByName(itemName: string) {
     return this.views.todoItems.filter({ hasText: itemName })
@@ -53,7 +53,7 @@ export class Profile {
 
   /**
    * Check a todo item from the list
-   * @param itemName - Item to intercat
+   * @param itemName - Item to interact
    */
   async checkTodoItem(name: string) {
     await this.getTodoItemByName(name).locator(this.checkboxes.completeTask).click()
@@ -61,7 +61,7 @@ export class Profile {
 
   /**
    * Remove a todo item
-   * @param itemName - Item to intercat
+   * @param itemName - Item to interact
    */
   async removeTodoItem(page: Page, name: string) {
     await Promise.all([
