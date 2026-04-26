@@ -26,9 +26,11 @@ test.describe('Manage ToDo Items @regression', async () => {
     await test.step('Click on "+" icon to access the "new" todo page', async () => {
       await app.profile.buttons.addNewTodo.click()
 
-      await expect(app.createNewTodo.views.createNewTodoPanel).toBeVisible()
+      await expect(
+        app.createNewTodo.views.createNewTodoPanelHeader,
+      ).toBeVisible()
 
-      await expect(app.createNewTodo.views.createNewTodoHeader).toHaveText(
+      await expect(app.createNewTodo.views.createNewTodoPanelHeader).toHaveText(
         'Create a new Todo',
       )
     })

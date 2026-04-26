@@ -1,12 +1,10 @@
 import { Page, Locator } from '@playwright/test'
 
 class Views {
-  readonly createNewTodoPanel: Locator
-  readonly createNewTodoHeader: Locator
+  readonly createNewTodoPanelHeader: Locator
 
   constructor(page: Page) {
-    this.createNewTodoPanel = page.locator('.eoofHA')
-    this.createNewTodoHeader = page.locator('.eoofHA [data-testid="header"]')
+    this.createNewTodoPanelHeader = page.locator('[data-testid="header"]')
   }
 }
 
