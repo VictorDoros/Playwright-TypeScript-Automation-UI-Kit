@@ -3,7 +3,7 @@ import { ENV } from '../utils/credentials.ts'
 
 test.beforeEach(async ({ page }) => {
   await test.step('Access the application', async () => {
-    await page.goto('/')
+    await page.goto('/', { waitUntil: 'domcontentloaded' })
   })
 })
 
