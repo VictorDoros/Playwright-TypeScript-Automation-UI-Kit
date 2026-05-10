@@ -1,8 +1,8 @@
 import { test, expect } from '../fixtures/test.fixture.ts'
 
-test.beforeEach(async ({ page }) => {
+test.beforeEach(async ({ app }) => {
   await test.step('Access the application', async () => {
-    await page.goto('/', { waitUntil: 'domcontentloaded' })
+    await app.page.goto('/', { waitUntil: 'domcontentloaded' })
   })
 })
 
