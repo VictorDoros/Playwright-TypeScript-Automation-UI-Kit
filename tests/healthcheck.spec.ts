@@ -7,10 +7,10 @@ test.beforeEach(async ({ page }) => {
 })
 
 test.describe('Health Check @smoke', async () => {
-  test('Loading the app @healthcheck', async ({ page, app }) => {
+  test('Loading the app @healthcheck', async ({ app }) => {
     // #1
     await test.step('Confirm the correct title of the page is displayed', async () => {
-      await expect(page).toHaveTitle('QAcart Todo App - Login page')
+      await expect(app.page).toHaveTitle('QAcart Todo App - Login page')
     })
 
     // #2

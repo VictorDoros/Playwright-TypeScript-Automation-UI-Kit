@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
 })
 
 test.describe('Manage ToDo Items @regression', async () => {
-  test('Add, check and delete a todo item @manageItems', async ({ page, app }) => {
+  test('Add, check and delete a todo item @manageItems', async ({ app }) => {
     // #1
     await test.step('Login the user', async () => {
       await app.home.userLogin(ENV.user.email, ENV.user.password)
@@ -30,7 +30,7 @@ test.describe('Manage ToDo Items @regression', async () => {
 
     // #4
     await test.step('Add a new todo item', async () => {
-      await app.createNewTodo.createTodoItem(page, 'item1')
+      await app.createNewTodo.createTodoItem(app.page, 'item1')
     })
 
     // #5
@@ -42,7 +42,7 @@ test.describe('Manage ToDo Items @regression', async () => {
     await test.step('Add another todo item', async () => {
       await app.profile.buttons.addNewTodo.click()
 
-      await app.createNewTodo.createTodoItem(page, 'item2')
+      await app.createNewTodo.createTodoItem(app.page, 'item2')
     })
 
     // #7
@@ -66,7 +66,7 @@ test.describe('Manage ToDo Items @regression', async () => {
 
     // #10
     await test.step('Remove one item e.g., "item1"', async () => {
-      await app.profile.removeTodoItem(page, 'item1')
+      await app.profile.removeTodoItem(app.page, 'item1')
     })
 
     // #11
@@ -76,7 +76,7 @@ test.describe('Manage ToDo Items @regression', async () => {
 
     // #12
     await test.step('Remove the remained item', async () => {
-      await app.profile.removeTodoItem(page, 'item2')
+      await app.profile.removeTodoItem(app.page, 'item2')
     })
 
     // #13

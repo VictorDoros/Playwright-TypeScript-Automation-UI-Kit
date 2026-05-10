@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
 })
 
 test.describe('Register Account @smoke', async () => {
-  test('User Registration @register', async ({ page, app }) => {
+  test('User Registration @register', async ({ app }) => {
     // Create a user
     const user = RandomDataUtil.generateUser()
 
@@ -20,7 +20,7 @@ test.describe('Register Account @smoke', async () => {
 
     // #2
     await test.step('Complete the registration form and register the user', async () => {
-      await app.registration.registerUser(page, user.firstName, user.lastName, user.email, user.password)
+      await app.registration.registerUser(app.page, user.firstName, user.lastName, user.email, user.password)
     })
 
     // #3
