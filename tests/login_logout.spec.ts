@@ -9,32 +9,28 @@ test.beforeEach(async ({ app }) => {
 
 test.describe('Login and Logout @smoke', async () => {
   test('Validate that user can log in @login_logout', async ({ app }) => {
+    // Uses current UTC hour to match greeting logic (time-dependent)
     const hour = new Date().getUTCHours()
     const expectedTextByPeriod = await app.profile.getGreetingByHour(hour, ENV.user.name)
 
-    // #1
     await test.step('Login the user', async () => {
       await app.home.userLogin(ENV.user.email, ENV.user.password)
     })
 
-    // #2
     await test.step('Confirm the user was logged in', async () => {
       await expect(app.profile.views.welcomeMessage).toHaveText(expectedTextByPeriod)
     })
   })
 
   test('Validate that user can log out @login_logout', async ({ app }) => {
-    // #1
     await test.step('Login the user', async () => {
       await app.home.userLogin(ENV.user.email, ENV.user.password)
     })
 
-    // #2
     await test.step('Logout the user', async () => {
       await app.profile.buttons.logout.click()
     })
 
-    // #3
     await test.step('Confirm the user was logged in', async () => {
       await expect(app.home.views.loginContainerHeader).toHaveText('Login to Application')
     })

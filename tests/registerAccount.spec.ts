@@ -12,20 +12,21 @@ test.describe('Register Account @smoke', async () => {
     // Create a user
     const user = RandomDataUtil.generateUser()
 
-    // #1
+    // Uses current UTC hour to match greeting logic (time-dependent)
+    const hour = new Date().getUTCHours()
+    const expectedTextByPeriod = await app.profile.getGreetingByHour(hour, user.firstName)
+
     await test.step('Open the registration page', async () => {
       await app.home.buttons.signUp.click()
       await expect(app.registration.views.registrationFormTitle).toHaveText('Register to Application')
     })
 
-    // #2
     await test.step('Complete the registration form and register the user', async () => {
       await app.registration.registerUser(app.page, user.firstName, user.lastName, user.email, user.password)
     })
 
-    // #3
     await test.step('Confirm user is logged in', async () => {
-      await expect(app.profile.views.welcomeMessage).toContainText(user.firstName)
+      await expect(app.profile.views.welcomeMessage).toHaveText(expectedTextByPeriod)
     })
   })
 })
