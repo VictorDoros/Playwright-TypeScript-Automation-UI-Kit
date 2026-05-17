@@ -71,4 +71,14 @@ export class Profile {
       this.getTodoItemByName(name).locator(this.buttons.removeTask).click(),
     ])
   }
+
+  async getGreetingByHour(hour: number, name: string) {
+    if (hour >= 6 && hour <= 12) {
+      return `Good morning ${name}`
+    } else if (hour > 12 && hour <= 17) {
+      return `Good afternoon ${name}`
+    } else {
+      return `Time to sleep ${name}`
+    }
+  }
 }

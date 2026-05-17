@@ -9,6 +9,9 @@ test.beforeEach(async ({ app }) => {
 
 test.describe('Login and Logout @smoke', async () => {
   test('Validate that user can log in @login_logout', async ({ app }) => {
+    const hour = new Date().getUTCHours()
+    const expectedTextByPeriod = await app.profile.getGreetingByHour(hour, ENV.user.name)
+
     // #1
     await test.step('Login the user', async () => {
       await app.home.userLogin(ENV.user.email, ENV.user.password)
@@ -16,7 +19,7 @@ test.describe('Login and Logout @smoke', async () => {
 
     // #2
     await test.step('Confirm the user was logged in', async () => {
-      await expect(app.profile.views.welcomeMessage).toContainText(new RegExp(ENV.user.name, 'i'))
+      await expect(app.profile.views.welcomeMessage).toHaveText(expectedTextByPeriod)
     })
   })
 
