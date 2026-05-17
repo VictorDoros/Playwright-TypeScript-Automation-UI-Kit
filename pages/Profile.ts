@@ -72,6 +72,19 @@ export class Profile {
     ])
   }
 
+  /**
+   * Returns a greeting message based on the provided hour of the day.
+   *
+   * The greeting is determined using the following ranges (UTC or local time,
+   * depending on the input provided):
+   * - 06:00–12:00 → "Good morning"
+   * - 12:01–17:00 → "Good afternoon"
+   * - Otherwise   → "Time to sleep"
+   *
+   * @param hour - The hour of the day (0–23)
+   * @param name - The user's name to include in the greeting
+   * @returns A formatted greeting message for the given time period
+   */
   async getGreetingByHour(hour: number, name: string) {
     if (hour >= 6 && hour <= 12) {
       return `Good morning ${name}`
