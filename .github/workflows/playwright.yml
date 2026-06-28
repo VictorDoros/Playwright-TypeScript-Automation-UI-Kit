@@ -53,7 +53,9 @@ jobs:
         run: npm ci
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps ${{ github.event.inputs.browser }}
+        run: |
+          echo "Starting Playwright installation..."
+          npx playwright install --with-deps ${{ github.event.inputs.browser }}
           echo "Playwright installation finished"
 
       - name: Install Allure CLI
