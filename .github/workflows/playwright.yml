@@ -54,9 +54,9 @@ jobs:
 
       - name: Install Playwright Browsers
         run: |
-          echo "Starting Playwright installation..."
+          echo "Starting Playwright Browser installation..."
           npx playwright install --with-deps ${{ github.event.inputs.browser }}
-          echo "Playwright installation finished"
+          echo "Playwright Browser installation finished"
 
       - name: Install Allure CLI
         run: npm install -g allure-commandline
