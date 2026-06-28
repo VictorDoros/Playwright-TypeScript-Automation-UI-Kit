@@ -8,7 +8,7 @@ test.beforeEach(async ({ app }) => {
 })
 
 test.describe('Register Account @smoke', async () => {
-  test('User Registration @register', async ({ app }) => {
+  test.only('User Registration @register', async ({ app }) => {
     // Create a user
     const user = RandomDataUtil.generateUser()
 
