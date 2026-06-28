@@ -1,6 +1,6 @@
 # Playwright TypeScript UI Automation Kit
 
-A Playwright + TypeScript UI automation framework for the [QAcart Todo App](https://todo.qacart.com/). The project uses the Page Object Model, custom fixtures, environment-based credentials, test tags, cross-browser projects, HTML reports, Allure reports, and GitHub Actions for CI execution.
+A Playwright + TypeScript UI automation framework for the [QAcart Todo App](https://todo.qacart.com/). The project uses the Page Object Model, custom fixtures, environment-based credentials, test tags, cross-browser projects, ESLint, HTML reports, Allure reports, and GitHub Actions for CI execution.
 
 ## Tech stack
 
@@ -9,6 +9,7 @@ A Playwright + TypeScript UI automation framework for the [QAcart Todo App](http
 - Custom Playwright fixtures
 - Faker for test data generation
 - dotenv for local credential management
+- ESLint for static code analysis
 - HTML and Allure reporting
 - GitHub Actions workflow with manual test-suite selection
 
@@ -35,6 +36,7 @@ A Playwright + TypeScript UI automation framework for the [QAcart Todo App](http
 │   ├── credentials.ts              # Required environment variables
 │   └── randomDataGeneration.ts     # Faker-based user generator
 ├── playwright.config.ts            # Playwright projects, reporters, retries
+├── eslint.config.mjs               # ESLint configuration
 ├── package.json
 └── .prettierrc
 ```
@@ -185,6 +187,26 @@ Debug a test:
 npx playwright test --debug
 ```
 
+## Linting
+
+The project uses ESLint to perform static code analysis and keep the codebase consistent.
+
+Run linting locally with:
+
+```bash
+npm run lint
+```
+
+The lint command checks the entire project:
+
+```bash
+eslint .
+```
+
+The ESLint configuration is defined in eslint.config.mjs and includes TypeScript and Playwright-specific rules. It helps catch issues such as unused variables, duplicate imports, focused tests, skipped tests, and non-recommended Playwright patterns.
+
+This helps ensure that code quality issues are caught locally before opening or updating a pull request.
+
 ## Reports
 
 The project is configured with three reporters:
@@ -325,7 +347,8 @@ The project includes Prettier configuration in `.prettierrc`:
     "test": "playwright test",
     "test:smoke": "playwright test --grep @smoke",
     "test:regression": "playwright test --grep @regression",
-    "report:html": "playwright show-report html-report"
+    "report:html": "playwright show-report html-report",
+    "lint": "eslint ."
   }
 }
 ```
@@ -336,6 +359,7 @@ Then commands can be run as:
 npm run test:smoke
 npm run test:regression
 npm run report:html
+npm run lint
 ```
 
 ## Notes for contributors
